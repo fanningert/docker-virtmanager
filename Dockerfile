@@ -23,6 +23,8 @@ RUN apk --update --upgrade add \
 	x11vnc \
 	xterm \
 	xvfb \
+        dbus \
+        dbis-x11 \
         libxext \
         libxtst \
         libxrender \
