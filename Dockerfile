@@ -34,8 +34,8 @@ RUN git clone https://github.com/kanaka/noVNC.git /root/noVNC \
 	&& git clone https://github.com/kanaka/websockify /root/noVNC/utils/websockify \
 	&& rm -rf /root/noVNC/.git \
 	&& rm -rf /root/noVNC/utils/websockify/.git \
-        && mv /root/noVNC/vnc.html /root/noVNC/index.html \
 	&& apk del git
+RUN mv /root/noVNC/vnc.html /root/noVNC/index.html
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
