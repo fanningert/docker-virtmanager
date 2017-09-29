@@ -40,6 +40,10 @@ RUN git clone https://github.com/kanaka/noVNC.git /root/noVNC \
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# since openssh-askpass doesn't exist, manually drop in the files from a previous image
+COPY gtk-ssh-askpass /usr/lib/ssh/gtk-ssh-askpass
+ENV SSH_ASKPASS /usr/lib/ssh/gtk-ssh-askpass
+
 # Modify the launch script 'ps -p'
 RUN sed -i -- "s/ps -p/ps -o pid | grep/g" /root/noVNC/utils/launch.sh
 
