@@ -44,4 +44,6 @@ RUN sed -i -- "s/ps -p/ps -o pid | grep/g" /root/noVNC/utils/launch.sh
 
 EXPOSE 8080
 
+VOLUME ["/root/.config/dconf", "/root/.ssh"]
+
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
