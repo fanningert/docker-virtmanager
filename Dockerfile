@@ -37,8 +37,6 @@ RUN git clone https://github.com/kanaka/noVNC.git /root/noVNC \
 	&& rm -rf /root/noVNC/utils/websockify/.git \
 	&& apk del git
 
-RUN apk del git
-
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Modify the launch script 'ps -p'
