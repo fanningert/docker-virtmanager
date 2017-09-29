@@ -42,6 +42,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # since openssh-askpass doesn't exist, manually drop in the files from a previous image
 COPY gtk-ssh-askpass /usr/bin/gtk-ssh-askpass
+RUN chmod 755 /usr/bin/gtk-ssh-askpass
 ENV SSH_ASKPASS /usr/bin/gtk-ssh-askpass
 
 # Modify the launch script 'ps -p'
