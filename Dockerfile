@@ -28,6 +28,7 @@ RUN apk --update --upgrade add \
         libxrender \
         virt-manager \
         openssh \
+        xterm \
    && rm -rf /var/cache/apk/*
 
 # Clone noVNC from github
