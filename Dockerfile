@@ -18,7 +18,6 @@ RUN apk --update --upgrade add \
 	bash \
 	fluxbox \
 	git \
-	socat \
 	supervisor \
 	x11vnc \
 	xvfb \
@@ -38,12 +37,9 @@ RUN git clone https://github.com/kanaka/noVNC.git /root/noVNC \
 	&& rm -rf /root/noVNC/utils/websockify/.git \
 	&& apk del git
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN apk del git
 
-# since openssh-askpass doesn't exist, manually drop in the files from a previous image
-COPY gtk-ssh-askpass /usr/bin/gtk-ssh-askpass
-RUN chmod 755 /usr/bin/gtk-ssh-askpass
-ENV SSH_ASKPASS /usr/bin/gtk-ssh-askpass
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Modify the launch script 'ps -p'
 RUN sed -i -- "s/ps -p/ps -o pid | grep/g" /root/noVNC/utils/launch.sh
