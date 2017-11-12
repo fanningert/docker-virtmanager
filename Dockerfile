@@ -20,14 +20,16 @@ RUN apk --update --upgrade add \
 	git \
 	supervisor \
 	x11vnc \
+    libressl2.6-libcrypto \ 
+    libressl2.6-libssl \
 	xvfb \
-        dbus-x11 \
-        libxext \
-        libxtst \
-        libxrender \
-        virt-manager \
-        openssh \
-        xterm \
+    dbus-x11 \
+    libxext \
+    libxtst \
+    libxrender \
+    virt-manager \
+    openssh \
+    xterm \
    && rm -rf /var/cache/apk/*
 
 # Clone noVNC from github
